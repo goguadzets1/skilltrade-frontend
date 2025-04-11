@@ -19,7 +19,7 @@ export default function ChatPage() {
       setUserId(user.id);
 
       // Fetch messages for the specific chat
-      const res = await fetch(`http://localhost:8000/get_chat_messages/${chat_id}`);
+      const res = await fetch(`https://skilltrade-backend-3wy5.onrender.com/get_chat_messages/${chat_id}`);
       const data = await res.json();
       setMessages(data);
 
@@ -28,10 +28,10 @@ export default function ChatPage() {
       setTheme(localTheme);
 
       // Fetch the selectedUser info (the user you're chatting with)
-      const chatRes = await fetch(`http://localhost:8000/get_chat/${chat_id}`);
+      const chatRes = await fetch(`https://skilltrade-backend-3wy5.onrender.com/get_chat/${chat_id}`);
       const chatData = await chatRes.json();
       const otherUserId = chatData.user1_id === user.id ? chatData.user2_id : chatData.user1_id;
-      const userRes = await fetch(`http://localhost:8000/get_user_profile/${otherUserId}`);
+      const userRes = await fetch(`https://skilltrade-backend-3wy5.onrender.com/get_user_profile/${otherUserId}`);
       const userData = await userRes.json();
       setSelectedUser(userData);  // Set selectedUser after fetching profile
     };
@@ -44,7 +44,7 @@ export default function ChatPage() {
   const handleMessageSend = async () => {
     if (message.trim() === '') return;
 
-    const res = await fetch(`http://localhost:8000/send_message`, {
+    const res = await fetch(`https://skilltrade-backend-3wy5.onrender.com/send_message`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

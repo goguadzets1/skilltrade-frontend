@@ -16,7 +16,7 @@ export default function ChatList() {
       setUserId(user.id);
 
       // Fetch chats for the current user
-      const res = await fetch(`http://localhost:8000/get_user_chats/${user.id}`);
+      const res = await fetch(`https://skilltrade-backend-3wy5.onrender.com/get_user_chats/${user.id}`);
       const data = await res.json();
       setChats(data);
 

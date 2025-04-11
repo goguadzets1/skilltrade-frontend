@@ -23,7 +23,7 @@ export default function Matches() {
 
       setUserId(user.id);
 
-      const res = await fetch(`http://localhost:8000/match/${user.id}`);
+      const res = await fetch(`https://skilltrade-backend-3wy5.onrender.com/match/${user.id}`);
       const data = await res.json();
       setMatches(data);
 
@@ -35,7 +35,7 @@ export default function Matches() {
   }, []);
 
   const loadChats = async () => {
-    const res = await fetch(`http://localhost:8000/get_user_chats/${userId}`);
+    const res = await fetch(`https://skilltrade-backend-3wy5.onrender.com/get_user_chats/${userId}`);
     const data = await res.json();
     setChats(data);
   };
@@ -63,7 +63,7 @@ export default function Matches() {
       setNotification({ type: 'success', message: 'Feedback submitted!' });
       closeModal();
 
-      const res = await fetch(`http://localhost:8000/match/${userId}`);
+      const res = await fetch(`https://skilltrade-backend-3wy5.onrender.com/match/${userId}`);
       const data = await res.json();
       setMatches(data);
     } catch (err) {
@@ -80,7 +80,7 @@ export default function Matches() {
     
     if (!existingChat) {
       // Create a new chat if it doesn't exist
-      const response = await fetch("http://localhost:8000/chats", {
+      const response = await fetch("https://skilltrade-backend-3wy5.onrender.com/chats", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

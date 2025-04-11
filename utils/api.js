@@ -1,6 +1,5 @@
-// const BASE_API = 'https://skilltrade-backend-3wy5.onrender.com';
-// const BASE_API = 'https://skilltrade-backend-3wy5.onrender.com';
-const BASE_API = 'http://localhost:8000';
+const BASE_API = 'https://skilltrade-backend-3wy5.onrender.com';
+// const BASE_API = 'http://localhost:8000';
 
 export const fetchMatches = async (userId) => {
   const res = await fetch(`${BASE_API}/match/${userId}`);
